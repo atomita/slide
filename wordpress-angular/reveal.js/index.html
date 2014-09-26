@@ -1,0 +1,128 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>AngularJS + WordpressでSinglePageSite</title><meta name="description" content="AngularJS + WordpressでSinglePageSite"><meta name="author" content="atomita"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="css/reveal.min.css"><link rel="stylesheet" href="css/theme/jp.css" id="theme"><link rel="stylesheet" href="lib/css/zenburn.css"><script>document.write( '<link rel="stylesheet" href="css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) +
+    '.css" type="text/css" media="print">' );</script><!--[if lt IE 9]><script src="lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section id="top"><h1 id="slideTitle">AngularJS + WordpressでSinglePageSite</h1><p id="author">atomita</p><p id="date">2014/09/27</p></section><section id="applicationではありません" class="level1"><h1>Applicationではありません</h1><p>Single Page Application ではなく Single Page Site です<br>アプリ作る機会ないですorz</p><section id="今回の話で目指すところ" class="level2"><h2>今回の話で目指すところ</h2><p>TwentyFourteenテーマを改造してSinglePage化</p></section></section><section id="必要なもの" class="level1"><h1>必要なもの</h1><ul><li>WordPress</li><li>AngularJS</li><li>angular-route</li><li>Wordpressが動くwebサーバー</li></ul></section><section id="その他使ったもの" class="level1"><h1>その他、使ったもの</h1><ul><li>angular-animate</li><li>OpenShift Online</li><li>CoffeeScript</li><li>Stylus</li><li>Yeoman + Yeopress</li><li>Bower</li><li>Composer</li></ul></section><section id="style.styl-style.css" class="level1"><h1>style.styl (style.css)</h1><section id="twentyfourteenテーマを改造と言ってもファイルを書き換えるのはアレな感じなので子テーマ機能を使います" class="level2"><h2>TwentyFourteenテーマを改造と言っても、ファイルを書き換えるのはアレな感じなので、子テーマ機能を使います</h2><pre><code>/*
+Theme Name: child
+Template: twentyfourteen
+*/
+
+@import url(&#39;../twentyfourteen/style.css&#39;);</code></pre></section><section id="あとanimate用の記述を少し" class="level2"><h2>あとanimate用の記述を少し</h2><pre><code>.slow
+    -webkit-transition all ease 2s
+    -moz-transition all ease 2s
+    -o-transition all ease 2s
+    transition all ease 2s
+
+.fade
+    &amp;.ng-enter
+        opacity 0
+
+        &amp;.ng-enter-active
+            opacity 1
+
+        &amp;.slow
+            transition-delay 2s
+
+    &amp;.ng-leave
+        opacity 1
+
+        &amp;.ng-leave-active
+            opacity 0</code></pre></section></section><section id="レイアウトで包む" class="level1"><h1>レイアウトで包む</h1><section id="ざっくりwordpressのhtml出力の流れ" class="level2"><h2>ざっくりWordPressのhtml出力の流れ</h2><blockquote><p>index.php 等</p><blockquote><p>header.php</p></blockquote><blockquote><p>コンテンツ</p></blockquote><blockquote><p>footer.php</p></blockquote></blockquote><p>こんな感じで、全てindex.php(他)がheader.php、footer.phpを呼び出す形で組まれますが、少しやりにくいので</p></section><section id="な感じで" class="level2"><h2>↓な感じで</h2><p>レイアウトファイルが出力する流れにちょいと改造します</p><blockquote><p>layout</p><blockquote><p>header.php</p></blockquote><blockquote><p>index.php 等のコンテンツ</p></blockquote><blockquote><p>footer.php</p></blockquote></blockquote></section></section><section id="layout" class="level1"><h1>layout</h1><section id="layoutdefault.php" class="level2"><h2>layout/default.php</h2><p>index.phpなどの出力が $contents に入っている体<br>それ以外は、 ng-view があるのと $contents の出力を消すJSが組んであるくらい</p><pre><code>&lt;?php
+include TEMPLATEPATH . &#39;/header.php&#39;;
+?&gt;
+&lt;div id=&quot;__static_contents&quot;&gt;
+    &lt;?php echo $contents; ?&gt;
+&lt;/div&gt;
+&lt;script&gt;jQuery(&#39;#__static_contents&#39;).html(&#39;&#39;);&lt;/script&gt;
+
+&lt;div ng-view id=&quot;__dynamic_contents&quot; class=&quot;slow fade&quot;&gt;&lt;/div&gt;
+&lt;?php
+include TEMPLATEPATH . &#39;/footer.php&#39;;</code></pre></section><section id="layoutcontent-only.php" class="level2"><h2>layout/content-only.php</h2><p>コンテンツだけを出力するやつも作っておきます</p><pre><code>&lt;?php
+echo $contents;</code></pre></section></section><section id="header-footer" class="level1"><h1>header, footer</h1><p>こちらは通常は何も出力しないようにしちゃいます</p><p>header.php</p><pre><code>&lt;?php
+if (is_admin()){
+    include TEMPLATEPATH . &#39;/header.php&#39;;
+}</code></pre><p>footer.php</p><pre><code>&lt;?php
+if (is_admin()){
+    include TEMPLATEPATH . &#39;/footer.php&#39;;
+}</code></pre></section><section id="functions.php" class="level1"><h1>functions.php</h1><section id="レイアウトの適用" class="level2"><h2>レイアウトの適用</h2><p>自作のLayoutStyleThemeというのを使ってますが、Twig等のテンプレートエンジン使ったほうがより良いと思います</p><p>今回はクエリパラメータ__contentsonly__が&quot;t&quot;の場合はコンテンツのみ出力するようにします</p><pre><code>&lt;?php
+require __DIR__ . &#39;/vendor/autoload.php&#39;;
+
+use \atomita\wordpress\LayoutStyleThemeFacade as LayoutStyle;
+LayoutStyle::initialize();
+
+// レイアウト変更
+if (isset($_GET[&#39;__contentsonly__&#39;]) &amp;&amp; $_GET[&#39;__contentsonly__&#39;] === &#39;t&#39;){
+    LayoutStyle::layout(&#39;content-only&#39;);
+}</code></pre></section><section id="javascriptの読み込み" class="level2"><h2>JavaScriptの読み込み</h2><pre><code>wp_enqueue_script(&#39;angular&#39;, get_stylesheet_directory_uri() . &quot;/bower_components/angular/angular.min.js&quot;, [&#39;jquery&#39;], &#39;1.2&#39;);
+wp_enqueue_script(&#39;angular-route&#39;, get_stylesheet_directory_uri() . &quot;/bower_components/angular-route/angular-route.min.js&quot;, [&#39;angular&#39;], &#39;1.2&#39;);
+wp_enqueue_script(&#39;angular-animate&#39;, get_stylesheet_directory_uri() . &quot;/bower_components/angular-animate/angular-animate.js&quot;, [&#39;angular&#39;], &#39;1.2&#39;);
+wp_enqueue_script(&#39;app&#39;, get_stylesheet_directory_uri() . &quot;/assets/scripts/app.js&quot;, [&#39;angular-route&#39;, &#39;angular-animate&#39;], &#39;1.2&#39;);
+global $wp_scripts;
+$wp_scripts-&gt;add_data(&#39;app&#39;, &#39;data&#39;, &#39;var config = {};&#39;);</code></pre></section><section id="baseタグの出力おまじない" class="level2"><h2>baseタグの出力（おまじない）</h2><pre><code>add_action(&#39;wp_head&#39;, function()
+{
+    $home = home_url(&#39;/&#39;);
+    echo &quot;&lt;base href=&#39;{$home}&#39; /&gt;\n&quot;;
+});</code></pre></section><section id="bodyのidとかclassの設定" class="level2"><h2>bodyのidとかclassの設定</h2><pre><code>add_filter(&#39;body_class&#39;, function($classes)
+{
+    echo &#39;id=&quot;ng-app&quot; ng-app=&quot;app&quot; xmlns:ng=&quot;http://angularjs.org&quot; &#39;; // 邪道!!
+    $classes[] = &#39;ng-app:app&#39;;
+    return $classes;
+});</code></pre></section></section><section id="app.coffee-app.js" class="level1"><h1>app.coffee (app.js)</h1><section id="angular.module" class="level2"><h2>angular.module</h2><pre><code>class @App
+
+    constructor: (@angular, @config, @jQuery)-&gt;
+        @_config.$inject = [&quot;$locationProvider&quot;, &quot;$compileProvider&quot;, &quot;$routeProvider&quot;, &quot;$logProvider&quot;, &quot;$animateProvider&quot;]
+        @_run.$inject = [&quot;$rootScope&quot;, &quot;$location&quot;, &quot;$window&quot;, &quot;$log&quot;, &quot;$timeout&quot;, &quot;$browser&quot;]
+
+        @app = @angular.module(&#39;app&#39;, [&#39;ngRoute&#39;, &#39;ngAnimate&#39;])
+        @app.config(@_config)
+        @app.run(@_run)</code></pre></section><section id="cofig" class="level2"><h2>cofig</h2><p>html5モードである必要があります</p><pre><code>    _config: ($locationProvider, $compileProvider, $routeProvider, @$logProvider, $animateProvider)=&gt;
+        $locationProvider.html5Mode(true).hashPrefix(&#39;!&#39;)
+
+        @_route($routeProvider)
+        @_animation($animateProvider)</code></pre></section><section id="run" class="level2"><h2>run</h2><pre><code>    _run: (@$rootScope, @$location, @$window, @$log, @$timeout, @$browser)=&gt;
+        @config.baseHref = $browser.baseHref()</code></pre></section><section id="route-1" class="level2"><h2>route (1)</h2><pre><code>    _route: ($routeProvider)=&gt;
+        $routeProvider
+        # admin
+        .when(&#39;:base*?/wp-admin/:__all__*?&#39;,
+            controller: ($window, $routeParams)=&gt;
+                    base = @config.baseHref + (if $routeParams.base then &quot;#{$routeParams.base}/&quot; else &quot;&quot;)
+                    all = if $routeParams.__all__ then $routeParams.__all__ else &quot;&quot;
+                    $window.location = &quot;#{base}wp-admin/#{all}&quot;
+            template: &quot;&quot;
+        )</code></pre></section><section id="route-2" class="level2"><h2>route (2)</h2><pre><code>        # all
+        .when(&#39;/:__all__*?&#39;,
+            controller: ($location, $routeParams, $scope)=&gt;
+                # することなし
+            templateUrl: ($routeParams)=&gt;
+                @$log.debug(&quot;Application.templateUrl&quot;, arguments)
+                all = if $routeParams.__all__? then $routeParams.__all__ else &quot;&quot;
+                delete $routeParams.__all__
+                query = @jQuery.param(angular.extend({&quot;__contentsonly__&quot;: &quot;t&quot;}, $routeParams))
+                &quot;#{@config.baseHref}#{all}?#{query}&quot;
+        )
+        .otherwise(
+            redirectTo: &#39;/&#39;
+        )</code></pre></section><section id="animate" class="level2"><h2>animate</h2><pre><code>    _animation: ($animateProvider)-&gt;
+        </code></pre></section><section id="インスタンス化" class="level2"><h2>インスタンス化</h2><pre><code>app = new App(angular, config, jQuery)</code></pre></section></section><section id="といった形で構築したのが" class="level1"><h1>といった形で構築したのが</h1><section id="httpawsmokumoku-at0m.rhcloud.com" class="level2"><h2>http://awsmokumoku-at0m.rhcloud.com/</h2></section></section><section id="おわり" class="level1"><h1>おわり。</h1><section id="ご清聴ありがとうございました" class="level2"><h2>ご清聴ありがとうございました</h2></section></section></div></div><script src="lib/js/head.min.js"></script><script src="js/reveal.min.js"></script><script>// Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'jp',
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'default',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });</script></body></html>
