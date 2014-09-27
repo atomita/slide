@@ -8,9 +8,14 @@
 Single Page Application ではなく Single Page Site です  
 アプリ作る機会ないですorz
 
-## 今回の話で目指すところ
+# 今回の話で目指すところ
 TwentyFourteenテーマを改造してSinglePage化
 
+3行で言うと
+
+* TwentyFourteenテーマの子テーマで
+* クエリパラメータでページ全体を返すか一部を返すか切り替えて
+* angular-routeを使って表示
 
 # 必要なもの
 
@@ -32,7 +37,7 @@ TwentyFourteenテーマを改造してSinglePage化
 
 # style.styl (style.css)
 
-## TwentyFourteenテーマを改造と言っても、ファイルを書き換えるのはアレな感じなので、子テーマ機能を使います
+## TwentyFourteenの子テーマにしたいのでtwentyfourteen を指定
 
 	/*
 	Theme Name: child
