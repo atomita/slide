@@ -21,6 +21,7 @@
 						var data = JSON.parse(response);
 						self.files = data
 							.filter(function(v){ return "file" == v.type; })
+							.filter(function(v){ return ["index.html", "README.md"].indexOf(v.name) < 0; })
 							.map(function(v){ return {"url": v.name, "name": v.name}; });
 						self.update();
 					});
