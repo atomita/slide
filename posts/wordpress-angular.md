@@ -47,6 +47,7 @@ TwentyFourteenテーマを改造してSinglePage化
 ## style.styl (style.css)
 
 ### TwentyFourteenの子テーマにしたいのでtwentyfourteen を指定
+
 ```stylus
 	/*
 	Theme Name: child
@@ -59,6 +60,7 @@ TwentyFourteenテーマを改造してSinglePage化
 
 
 ### あとanimate用の記述を少し
+
 ```stylus
 	.slow
 		-webkit-transition all ease 2s
@@ -119,6 +121,7 @@ TwentyFourteenテーマを改造してSinglePage化
 
 index.phpなどの出力が \$contents に入っている体  
 それ以外は、 ng-view があるのと \$contents の出力を消すJSが組んであるくらい
+
 ```php
 	<?php
 	include TEMPLATEPATH . '/header.php';
@@ -138,6 +141,7 @@ index.phpなどの出力が \$contents に入っている体
 ### layout/content-only.php
 
 コンテンツだけを出力するやつも作っておきます
+
 ```php
 	<?php
 	echo $contents;
@@ -150,6 +154,7 @@ index.phpなどの出力が \$contents に入っている体
 こちらは通常は何も出力しないようにしちゃいます
 
 header.php
+
 ```php
 	<?php
 	if (is_admin()){
@@ -158,6 +163,7 @@ header.php
 ```
 
 footer.php
+
 ```php
 	<?php
 	if (is_admin()){
@@ -173,7 +179,8 @@ footer.php
 
 自作のLayoutStyleThemeというのを使ってますが、Twig等のテンプレートエンジン使ったほうがより良いと思います  
 
-今回はクエリパラメータ__contentsonly__が"t"の場合はコンテンツのみ出力するようにします  
+今回はクエリパラメータ__contentsonly__が"t"の場合はコンテンツのみ出力するようにします
+
 ```php
 	<?php
 	require __DIR__ . '/vendor/autoload.php';
@@ -190,6 +197,7 @@ footer.php
 
 
 ### JavaScriptの読み込み
+
 ```php
 	wp_enqueue_script('angular', get_stylesheet_directory_uri() . "/bower_components/angular/angular.min.js", ['jquery'], '1.2');
 	wp_enqueue_script('angular-route', get_stylesheet_directory_uri() . "/bower_components/angular-route/angular-route.min.js", ['angular'], '1.2');
@@ -202,6 +210,7 @@ footer.php
 
 
 ### baseタグの出力（おまじない）
+
 ```php
 	add_action('wp_head', function()
 	{
@@ -213,6 +222,7 @@ footer.php
 
 
 ### bodyのidとかclassの設定
+
 ```php
 	add_filter('body_class', function($classes)
 	{
@@ -227,6 +237,7 @@ footer.php
 ## app.coffee (app.js)
 
 ### angular.module
+
 ```coffee
 	class @App
 
@@ -244,6 +255,7 @@ footer.php
 ### cofig
 
 html5モードである必要があります
+
 ```coffee
 		_config: ($locationProvider, $compileProvider, $routeProvider, @$logProvider, $animateProvider)=>
 			$locationProvider.html5Mode(true).hashPrefix('!')
@@ -255,6 +267,7 @@ html5モードである必要があります
 
 
 ### run
+
 ```coffee
 		_run: (@$rootScope, @$location, @$window, @$log, @$timeout, @$browser)=>
 			@config.baseHref = $browser.baseHref()
@@ -263,6 +276,7 @@ html5モードである必要があります
 
 
 ### route (1)
+
 ```coffee
 		_route: ($routeProvider)=>
 			$routeProvider
@@ -279,6 +293,7 @@ html5モードである必要があります
 
 
 ### route (2)
+
 ```coffee
 			# all
 			.when('/:__all__*?',
@@ -299,6 +314,7 @@ html5モードである必要があります
 
 
 ### animate
+
 ```coffee
 _animation: ($animateProvider)->
 ```	
@@ -306,6 +322,7 @@ _animation: ($animateProvider)->
 
 
 ### インスタンス化
+
 ```coffee
 app = new App(angular, config, jQuery)
 ```
