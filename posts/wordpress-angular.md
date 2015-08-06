@@ -4,6 +4,7 @@ atomita
 2014/09/27
 
 
+
 ## Applicationではありません
 
 Single Page Application ではなく Single Page Site です  
