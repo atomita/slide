@@ -313,7 +313,7 @@ html5モードである必要があります
 
 
 
-### animate
+### animation
 
 cssでやるので特に書くことなし
 
