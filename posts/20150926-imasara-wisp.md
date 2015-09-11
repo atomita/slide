@@ -14,6 +14,7 @@
 ### 
 
 
+
 ## まとめ
 
 
@@ -307,8 +308,6 @@ $('.target').fadeIn().delay(1000).fadeOut();
 
 
 
-## これが
-
 ```js
 // js
 var gulp = require("gulp"),
@@ -339,7 +338,9 @@ gulp.task('stylus', function () {
 
 
 
-## こう書けます
+## これが…
+
+
 
 ```wisp
 ; wisp
@@ -377,7 +378,9 @@ gulp.task('stylus', function () {
 
 
 
-## こう書けます!!
+## さらにmacroを書けば…
+
+
 
 ```wisp
 ; wisp
