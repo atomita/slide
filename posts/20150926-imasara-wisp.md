@@ -1,17 +1,17 @@
 # いまさら wisp
 
-
-### 2015-09-26
+### 2015-07-25
 
 ### atomita
 
 
 
-### 自己紹介
+## 自己紹介
 
+### Web系4年半ほどのプログラマ
 
-
-### 
+### 3ヶ月くらい前から
+### 琉球インタラクティブに所属してます
 
 
 
@@ -20,7 +20,6 @@
 
 
 - <h2>ClojureでJavaScript</h2>
-- <h2>macro便利です</h2>
 - <h2>まずはgulpfileから</h2>
 
 
@@ -50,7 +49,15 @@
 
 
 
-## 括弧はそれなりに多い...？
+## Clojureってなに？
+
+
+
+## 少しカッコが少ないLispです
+
+
+
+## カッコはそれなりに多い...？
 
 
 
@@ -68,12 +75,98 @@ console.log(new Date().toString());
 
 
 
-## この程度なら数は同じ！
+## この程度なら数は同じ
+
+jsと張り合っても... という声が聞こえてきそうですが
+
+
+
+## gulpfile から wisp
+## 始めてみませんか
+
+
+
+## wisp なら
+
+
+
+## これが
+
+```js
+// js
+var gulp = require("gulp"),
+  plugins = require("gulp-load-plugins"),
+  stylus = require("stylus"),
+  nib = require("nib");
+
+gulp.task('stylus', function () {
+  return gulp.src(['./**/*.styl(us)', '!./**/_*.styl(us)'])
+    .pipe(plugins.plumber({
+      'errorHandler': plugins.notify.onError({
+        'title': 'task: stylus',
+        'message': 'Error: <%= error.message %>'
+      })
+    }))
+    .pipe(plugins.stylus({
+      'define': { 'url': stylus.resolver() },
+      'resolve url': true,
+      'use': [nib()],
+      'import': 'nib'
+    }))
+    .pipe(gulp.dest('./'))
+    .pipe(plugins.minifyCss())
+    .pipe(plugins.rename({ 'extname': '.min.css' }))
+    .pipe(gulp.dest('./'));
+});
+```
+
+
+
+## こう書けます
+
+```wisp
+; wisp
+(ns app.tasks
+  "tasks"
+  (:require [gulp]
+            [gulp-load-plugins :as plugins]
+            [stylus]
+            [nib]))
+
+(gulp.task :stylus
+   (fn []
+     (gulp-line
+      src ["./**/*.styl(us)" "!./**/_*.styl(us)"]
+      | plugins.plumber
+                {:errorHandler
+                 (plugins.notify.onError
+                  {:title "task: stylus"
+                   :message "Error: <%= error.message %>"})
+                 }
+      | plugins.stylus
+                {:define {:url (stylus.resolver)}
+                 "resolve url" true
+                 :use [(nib)]
+                 :import :nib
+                 }
+      > "./"
+      | plugins.minifyCss
+      | plugins.rename {:extname ".min.css"}
+      > "./"
+      )))
+```
+
+※ defmacroは省略してます
+
+
+
+## ご静聴ありがとうございました
 
 
 
 ## wisp のいいところ
-個人的にね
+
+個人的に、です
 
 
 
@@ -292,122 +385,4 @@ $('.target').fadeIn().delay(1000).fadeOut();
 
 
 
-## しかし、プロダクトで
-## wisp はないよね...
-
-
-
-## ということで
-## gulpfile から
-## 始めてみませんか？
-## (提案)
-
-
-
-## wisp なら
-
-
-
-```js
-// js
-var gulp = require("gulp"),
-  plugins = require("gulp-load-plugins"),
-  stylus = require("stylus"),
-  nib = require("nib");
-
-gulp.task('stylus', function () {
-  return gulp.src(['./**/*.styl(us)', '!./**/_*.styl(us)'])
-    .pipe(plugins.plumber({
-      'errorHandler': plugins.notify.onError({
-        'title': 'task: stylus',
-        'message': 'Error: <%= error.message %>'
-      })
-    }))
-    .pipe(plugins.stylus({
-      'define': { 'url': stylus.resolver() },
-      'resolve url': true,
-      'use': [nib()],
-      'import': 'nib'
-    }))
-    .pipe(gulp.dest('./'))
-    .pipe(plugins.minifyCss())
-    .pipe(plugins.rename({ 'extname': '.min.css' }))
-    .pipe(gulpø1.dest('./'));
-});
-```
-
-
-
-## これが…
-
-
-
-```wisp
-; wisp
-(ns app.tasks
-  "tasks"
-  (:require [gulp]
-            [gulp-load-plugins :as plugins]
-            [stylus]
-            [nib]))
-
-(gulp.task :stylus
-   (fn []
-     (->
-      (gulp.src ["./**/*.styl(us)" "!./**/_*.styl(us)"])
-      (.pipe (plugins.plumber
-              {:errorHandler
-               (plugins.notify.onError
-                {:title "task: stylus"
-                 :message "Error: <%= error.message %>"})
-               }))
-      (.pipe (plugins.stylus
-              {:define {:url (stylus.resolver)}
-               "resolve url" true
-               :use [(nib)]
-               :import :nib
-               }))
-      (.pipe (gulp.dest "./"))
-      (.pipe (plugins.minifyCss))
-      (.pipe (plugins.rename {:extname ".min.css"}))
-      (.pipe (gulp.dest "./"))
-      )))
-```
-
-※ defmacroは省略してます
-
-
-
-## さらにmacroを書けば…
-
-
-
-```wisp
-; wisp
-(gulp.task :stylus
-   (fn []
-     (gulp-line src ["./**/*.styl(us)" "!./**/_*.styl(us)"]
-      | plugins.plumber
-                {:errorHandler
-                 (plugins.notify.onError
-                  {:title "task: stylus"
-                   :message "Error: <%= error.message %>"})
-                 }
-      | plugins.stylus
-                {:define {:url (stylus.resolver)}
-                 "resolve url" true
-                 :use [(nib)]
-                 :import :nib
-                 }
-      > "./"
-      | plugins.minifyCss
-      | plugins.rename {:extname ".min.css"}
-      > "./"
-      )))
-```
-
-※ defmacroは省略してます
-
-
-
-## ご静聴ありがとうございました
+## ほんとうにご清聴ありがとうございました
