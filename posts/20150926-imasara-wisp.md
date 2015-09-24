@@ -47,7 +47,8 @@
 	- マクロ
 - <h2>node.js でコンパイル</h2>
 	- ブラウザ上でもコンパイルできる
-- <h2>ClojureScriptと比較して可読性の高いJavaScriptが出力される</h2>
+- <h2>ClojureScriptと比較して  
+  可読性の高いJavaScriptが出力される</h2>
 	- [http://www.jeditoolkit.com/interactivate-wisp/](http://www.jeditoolkit.com/interactivate-wisp/)
 
 
