@@ -44,9 +44,9 @@
 
 - <h2>Clojure syntax</h2>
 	- S式
-	- マクロ
+	- マクロ  
 - <h2>node.js でコンパイル</h2>
-	- ブラウザ上でもコンパイルできる
+	- ブラウザ上でもコンパイルできる  
 - <h2>ClojureScriptと比較して  
   可読性の高いJavaScriptが出力される</h2>
 	- [http://www.jeditoolkit.com/try-wisp/](http://www.jeditoolkit.com/try-wisp/)
