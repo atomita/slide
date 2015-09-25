@@ -8,8 +8,8 @@
 
 ## 自己紹介
 
-- <h3>4年半ほど前に沖縄にきました</h3>
-- <h3>4年半ほどWebプログラマ</h3>
+- <h3>4年ほど前に沖縄にきました</h3>
+- <h3>4年ほどWebプログラマ</h3>
 
 - <h3>3ヶ月ほど前から  
   琉球インタラクティブに所属してます</h3>
@@ -91,7 +91,7 @@ jsと張り合っても... という声が聞こえてきそうですが
 ## gulpfile から wisp
 ## 始めてみませんか
 
-どのaltJSが使えるかは[js-cli/js-interpret](https://github.com/js-cli/js-interpret)を参照
+どのaltJSが使えるかは[js-cli/js-interpret](https://github.com/js-cli/js-interpret)のjsVariantsを参照  
 
 
 
