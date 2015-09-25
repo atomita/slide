@@ -87,8 +87,11 @@ jsと張り合っても... という声が聞こえてきそうですが
 
 
 
+## gulpfile は altJS が使えます
 ## gulpfile から wisp
 ## 始めてみませんか
+
+どのaltJSが使えるかは[js-cli/js-interpret](https://github.com/js-cli/js-interpret)を参照
 
 
 
