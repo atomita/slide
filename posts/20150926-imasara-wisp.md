@@ -168,6 +168,7 @@ gulp.task('stylus', function () {
 ```
 
 ※ defmacroは省略してます
+[gulp-line macro](https://github.com/atomita/gulpfile-base/blob/master/gulpfile.wisp#L1~L71)
 
 
 
