@@ -13,6 +13,7 @@
 
 - <h3>3ヶ月ほど前から  
   琉球インタラクティブに所属してます</h3>
+    - 最近 [JobAntenna](https://www.jobantenna.jp/) をリニューアル
 
 - https://github.com/atomita
 
@@ -104,7 +105,7 @@ jsと張り合っても... という声が聞こえてきそうですが
 ```js
 // js
 var gulp = require("gulp"),
-  plugins = require("gulp-load-plugins"),
+  plugins = require("gulp-load-plugins")(),
   stylus = require("stylus"),
   nib = require("nib");
 
@@ -138,9 +139,10 @@ gulp.task('stylus', function () {
 (ns app.tasks
   "tasks"
   (:require [gulp]
-            [gulp-load-plugins :as plugins]
+            [gulp-load-plugins]
             [stylus]
             [nib]))
+(def plugins (gulp-load-plugins))
 
 (gulp.task :stylus
    (fn []
