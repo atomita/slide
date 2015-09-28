@@ -212,6 +212,9 @@ gulp.task('stylus', function () {
 }
 ```
 
+requireを羅列するのが簡単なのでCommonJSで書くときに楽  
+また、namespaceのルートが同じだと相対アクセスにしてくれます
+
 
 
 ## foo?
@@ -220,6 +223,7 @@ gulp.task('stylus', function () {
 
 ```wisp
 ; wisp
+(defn- foo? [] false)
 (foo?)
 ```
 
@@ -227,8 +231,13 @@ gulp.task('stylus', function () {
 
 ```js
 // js
+var isFoo = function isFoo() {
+    return false;
+};
 isFoo();
 ```
+
+`xxx?`を使うと`isXxx`に書き換えてくれます
 
 
 
