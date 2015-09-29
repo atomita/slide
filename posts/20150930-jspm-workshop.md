@@ -187,7 +187,7 @@ npm run gulp serve
 
 以下をコピペしてweb/index.htmlを作成してください
 
-```html
+```htm
 <!doctype html>
 <html>
 	<head>
