@@ -42,7 +42,7 @@
         └── scripts
 ```
 
-note: 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます  
+ note: 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます  
 mac/linuxなら`mkdir -p {src,web}/assets/{styles,scripts}`
 
 
@@ -55,7 +55,7 @@ npm init
 
 全てEnterで進めて問題ありません
 
-note: 実際に現場で使う際は必要な設定を施してください
+ note: 実際に現場で使う際は必要な設定を施してください
 
 
 
