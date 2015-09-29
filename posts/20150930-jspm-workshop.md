@@ -193,7 +193,6 @@ npm run gulp serve
 	<head>
 		<meta charset="UTF-8">
 		<title>jspm workshop</title>
-
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
