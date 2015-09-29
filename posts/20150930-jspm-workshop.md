@@ -27,7 +27,8 @@ atomita
 ### node.js 環境構築
 
 [node.jsのdownload page](https://nodejs.org/en/download/)からpackageをdownloadしてinstallするか  
-[anyenvで開発環境を整える](http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea)を参考にanyenvを使ってndenvをinstallし、ndenvを使ってnode.jsをinstallしてください
+[anyenvで開発環境を整える](http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea)を参考にanyenvを使ってndenvをinstallし  
+ndenvを使ってnode.jsをinstallしてください
 
 
 
@@ -46,7 +47,7 @@ atomita
         └── scripts
 ```
 
-Note: 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます  
+note: 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます  
 mac/linuxなら`mkdir -p {src,web}/assets/{styles,scripts}`
 
 
@@ -59,7 +60,7 @@ npm init
 
 全てEnterで進めて問題ありません
 
-Note: 実際に現場で使う際は必要な設定を施してください
+note: 実際に現場で使う際は必要な設定を施してください
 
 
 
