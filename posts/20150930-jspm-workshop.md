@@ -189,7 +189,7 @@ npm run gulp serve
 sctiptの閉じタグに全角スペースを入れてあるので、それは消してください  
 (revel.jsのmarkdownがscriptタグで壊れるので… orz)
 
-```
+```html
 <!doctype html><html>
 	<head>
 		<meta charset="UTF-8">
