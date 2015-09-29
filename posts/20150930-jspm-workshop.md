@@ -185,43 +185,20 @@ npm run gulp serve
 
 ### web/index.htmlの用意
 
-以下をコピペしてweb/index.htmlを作成してください
-
-<code>
-&lt;!doctype html&gt;  
-&lt;html&gt;  
-    &lt;head&gt;  
-        &lt;meta charset="UTF-8"&gt;  
-        &lt;title&gt;jspm workshop&lt;/title&gt;  
-        &lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;  
-        &lt;script src="config.js"&gt;&lt;/script&gt;  
-        &lt;script&gt;  
-        System.import('assets/scripts/main.js');  
-        &lt;/script&gt;  
-    &lt;/head&gt;  
-    &lt;body&gt;  
-        &lt;header&gt;  
-            &lt;h1&gt;jspm workshop&lt;/h1&gt;  
-        &lt;/header&gt;  
-        &lt;section id="contents-container"&gt;  
-        &lt;/section&gt;  
-        &lt;footer&gt;  
-        &lt;/footer&gt;  
-    &lt;/body&gt;  
-&lt;/html&gt;  
-</code>
+以下をコピペしてweb/index.htmlを作成してください  
+sctiptの閉じタグに全角スペースあ入れてあるので、それは消してください  
+(revel.jsのmarkdownのバグのせいで入れてます orz)
 
 ```
-<!doctype html>
-<html>
+<!doctype html><html>
 	<head>
 		<meta charset="UTF-8">
 		<title>jspm workshop</title>
-		<script src="jspm_packages/system.js"></script>
-		<script src="config.js"></script>
+		<script src="jspm_packages/system.js"></　script>
+		<script src="config.js"></　script>
 		<script>
 		System.import('assets/scripts/main.js');
-		</script>
+		</　script>
 	</head>
 	<body>
 		<header>
