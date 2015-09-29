@@ -64,7 +64,10 @@ npm init
 必要なpackageをinstallします
 
 ```sh
-npm install --save-dev jspm gulp gulp-load-plugins gulp-webserver gulp-notify gulp-plumber gulp-stylus stylus nib wisp
+npm install --save-dev jspm gulp gulp-load-plugins \
+                       gulp-webserver gulp-notify \
+                       gulp-plumber gulp-stylus \
+                       stylus nib wisp
 ```
 
 
