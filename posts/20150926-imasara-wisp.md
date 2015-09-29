@@ -147,7 +147,7 @@ gulp.task('stylus', function () {
 (gulp.task :stylus
    (fn []
      (gulp-line
-      src ["./**/*.styl(us)" "!./**/_*.styl(us)"]
+      src ["./**/*.styl{,us}" "!./**/_*.styl{,us}"]
       | plugins.plumber
                 {:errorHandler
                  (plugins.notify.onError
