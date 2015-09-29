@@ -1,8 +1,5 @@
 # jspm workshop
 
-2015-09-30  
-atomita
-
 
 
 ## 使うもの
@@ -13,7 +10,6 @@ atomita
 - gulp
   - webserver
   - stylus
-  - 他
 - wisp
   - gulpfile用
   - gulpfileの内容をコピペしない場合は不要です
@@ -27,8 +23,7 @@ atomita
 ### node.js 環境構築
 
 [node.jsのdownload page](https://nodejs.org/en/download/)からpackageをdownloadしてinstallするか  
-[anyenvで開発環境を整える](http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea)を参考にanyenvを使ってndenvをinstallし  
-ndenvを使ってnode.jsをinstallしてください
+[anyenvで開発環境を整える](http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea)を参考にanyenvを使ってndenvをinstallし、ndenvを使ってnode.jsをinstallしてください
 
 
 
@@ -118,17 +113,7 @@ Which ES6 transpiler would you like to use, Babel, TypeScript or Traceur? [trace
 以下の内容を ./gulpfile.wisp として保存してください
 
 ```clojure
-(defmacro gulp-line "" [& commandline] (let [symbol-value (fn [symbl] (if (symbol? symbl) (get symbl :name) ""))
-chunk (fn [commandline] (loop [backs commandline front nil] (if (empty? backs) (list front) (let [fst (first backs)
-fst-val (symbol-value fst) fst* (if (dictionary? fst) [fst] fst) ] (if (or (= fst-val "|") (= fst-val ">")) (if
-(symbol? front) (list (list front) backs) (list front backs)) (recur (rest backs) (if front (cons front fst*)
-fst*))))))) chunked (chunk commandline) pipe (fn [command form] `(.pipe ~form (~@command))) dest (fn [command form]
-`(.pipe ~form (gulp.dest ~command))) firsts ((fn [commandline] (let [fst (first commandline) fst-val (symbol-value
-fst) rst (rest commandline) ] (if (and fst-val (= "gulp." (fst-val.slice 0 5))) commandline (if (= (get fst-val 0)
-".") `(~fst gulp ~rst) (do (set! (aget (first commandline) :name) (+ "." fst-val)) `(~fst gulp ~rst) )))) ) (first
-chunked)) ] (loop [commandline (second chunked) form firsts] (if commandline (let [fname (symbol-value (first
-commandline)) chunked (chunk (rest commandline)) segment (first chunked) command (if (= fname "|") (pipe segment form)
-(dest segment form)) ] (recur (second chunked) command)) form ))))
+(defmacro gulp-line "" [& commandline] (let [symbol-value (fn [symbl] (if (symbol? symbl) (get symbl :name) "")) chunk (fn [commandline] (loop [backs commandline front nil] (if (empty? backs) (list front) (let [fst (first backs) fst-val (symbol-value fst) fst* (if (dictionary? fst) [fst] fst) ] (if (or (= fst-val "|") (= fst-val ">")) (if (symbol? front) (list (list front) backs) (list front backs)) (recur (rest backs) (if front (cons front fst*) fst*))))))) chunked (chunk commandline) pipe (fn [command form] `(.pipe ~form (~@command))) dest (fn [command form] `(.pipe ~form (gulp.dest ~command))) firsts ((fn [commandline] (let [fst (first commandline) fst-val (symbol-value fst) rst (rest commandline) ] (if (and fst-val (= "gulp." (fst-val.slice 0 5))) commandline (if (= (get fst-val 0) ".") `(~fst gulp ~rst) (do (set! (aget (first commandline) :name) (+ "." fst-val)) `(~fst gulp ~rst) )))) ) (first chunked)) ] (loop [commandline (second chunked) form firsts] (if commandline (let [fname (symbol-value (first commandline)) chunked (chunk (rest commandline)) segment (first chunked) command (if (= fname "|") (pipe segment form) (dest segment form)) ] (recur (second chunked) command)) form ))))
 
 
 (ns app.tasks
