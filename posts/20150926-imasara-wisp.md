@@ -110,7 +110,7 @@ var gulp = require("gulp"),
   nib = require("nib");
 
 gulp.task('stylus', function () {
-  return gulp.src(['./**/*.styl(us)', '!./**/_*.styl(us)'])
+  return gulp.src(['./**/*.styl{,us}', '!./**/_*.styl{,us}'])
     .pipe(plugins.plumber({
       'errorHandler': plugins.notify.onError({
         'title': 'task: stylus',
