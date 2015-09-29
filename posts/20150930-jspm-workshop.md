@@ -187,7 +187,7 @@ npm run gulp serve
 
 以下をコピペしてweb/index.htmlを作成してください  
 sctiptの閉じタグに全角スペースあ入れてあるので、それは消してください  
-(revel.jsのmarkdownのバグのせいで入れてます orz)
+(revel.jsのmarkdownがscriptタグで壊れるので… orz)
 
 ```
 <!doctype html><html>
