@@ -46,9 +46,8 @@ atomita
         └── scripts
 ```
 
-note
-- 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます
-- mac/linuxなら`mkdir -p {src,web}/assets/{styles,scripts}`
+Note: 後述の手順で、./node_modules, web/jspm_packagesディレクトリ等が作成されます  
+mac/linuxなら`mkdir -p {src,web}/assets/{styles,scripts}`
 
 
 
@@ -60,8 +59,7 @@ npm init
 
 全てEnterで進めて問題ありません
 
-note
-- 実際に現場で使う際は必要な設定を施してください
+Note: 実際に現場で使う際は必要な設定を施してください
 
 
 
@@ -182,6 +180,7 @@ npm run gulp serve
 ```
 
 
+
 ## Hello World
 
 
@@ -216,6 +215,7 @@ npm run gulp serve
 ```
 
 
+
 ### web/assets/scripts/main.jsの用意
 
 以下をコピペしてweb/assets/scripts/main.jsを作成してください
@@ -224,6 +224,7 @@ npm run gulp serve
 var contents = document.getElementById("contents-container");
 contents.innerHTML = "Hello World!!";
 ```
+
 
 
 ### 動作確認
