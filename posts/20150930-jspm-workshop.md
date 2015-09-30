@@ -84,7 +84,7 @@ npm install --save-dev jspm gulp gulp-load-plugins \
 -    "test": "echo \"Error: no test specified\" && exit 1"
 +    "test": "echo \"Error: no test specified\" && exit 1",
 +    "gulp": "gulp",
-+    "jspm": "jspm",
++    "jspm": "jspm"
   },
 ```
 
