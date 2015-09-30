@@ -80,12 +80,12 @@ npm install --save-dev jspm gulp gulp-load-plugins \
 "scripts"にgulpとjspmを追加してください
 
 ```diff
-  "scripts": {
+   "scripts": {
 -    "test": "echo \"Error: no test specified\" && exit 1"
 +    "test": "echo \"Error: no test specified\" && exit 1",
 +    "gulp": "gulp",
 +    "jspm": "jspm"
-  },
+   },
 ```
 
 
