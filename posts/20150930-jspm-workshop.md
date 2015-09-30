@@ -56,15 +56,14 @@ mac/linuxなら`mkdir -p {src,web}/assets/{styles,scripts}`
 npm init
 ```
 
-全てEnterで進めて問題ありません
+対話形式で設定していきます  
+今回は全て未入力でEnterを押下して問題ありません
 
  note: 実際に現場で使う際は必要な設定を施してください
 
 
 
-### npm packages install
-
-必要なpackageをinstallします
+### 必要なpackageをinstall
 
 ```sh
 npm install --save-dev jspm gulp gulp-load-plugins \
@@ -110,7 +109,7 @@ Which ES6 transpiler would you like to use, Babel, TypeScript or Traceur? [trace
 ```
 
 今回は`Enter server baseURL (public folder path) [./]:`に対して`web/`を設定してください  
-ほかは全て未入力でEnterしてください
+ほかは全て未入力でEnterを押下してください
 
 
 
