@@ -251,7 +251,8 @@ web/jspm_packages/github/components/ 以下にjqueryがdownloadされます
 
 ### web/assets/scripts/main.jsでjQueryを利用
 
-EcmaScript6のimportか、CommonJSのrequireでjQueryを読み込みます
+EcmaScript6のimportか、CommonJSのrequireでjQueryを読み込みます  
+以下をコピペしてweb/assets/scripts/main.jsを書き換えてください
 
 ```js
 import $ from 'jquery';
@@ -312,6 +313,9 @@ npm run gulp stylus
 
 
 ### web/assets/scripts/main.jsでcssを読み込み
+
+以下をコピペしてweb/assets/scripts/main.jsを書き換えてください
+( `import '../styles/main.css!';` を追加しています )
 
 ```js
 import $ from 'jquery';
