@@ -314,7 +314,7 @@ npm run gulp stylus
 
 ### web/assets/scripts/main.jsでcssを読み込み
 
-以下をコピペしてweb/assets/scripts/main.jsを書き換えてください
+以下をコピペしてweb/assets/scripts/main.jsを書き換えてください  
 ( `import '../styles/main.css!';` を追加しています )
 
 ```js
