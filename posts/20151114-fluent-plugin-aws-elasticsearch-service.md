@@ -36,9 +36,9 @@
 
 
 
-## fluentdからelasticsearchに
+## fluentdからelasticsearchに送る
 
-## 送るpluginはすでにありました
+## pluginはすでにありました
 
 ### [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch/)
 
