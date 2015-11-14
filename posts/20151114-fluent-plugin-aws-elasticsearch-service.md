@@ -1,4 +1,5 @@
 # fluent-plugin-aws-elasticsearch-service
+
 # を作りました
 
 ### 2015-11-14
@@ -31,6 +32,7 @@
 
 
 ## fluentdからelasticsearchに送るpluginがすでにありました
+
 ### [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch/)
 
 
@@ -38,7 +40,9 @@
 
 
 ## せっかくAWSなので
+
 ## IAMでの認証をできるようにしたのが
+
 ## [fluent-plugin-aws-elasticsearch-service](https://rubygems.org/gems/fluent-plugin-aws-elasticsearch-service/)です
 
 
@@ -46,15 +50,22 @@
 
 
 ### 1
+
 #### 海外の方からの[issue](https://github.com/atomita/fluent-plugin-aws-elasticsearch-service/issues/2)が1つ解決できていません(;_;)
+
 #### Elasticsearch Serviceの認証でつまづいているようですが
+
 #### 再現できておらず...
 
 
 ### 2
+
 #### faraday_middleware-aws-signers-v4に
+
 #### モンキーパッチをあてて使っているので
+
 #### ちゃんと対応して
+
 #### faraday_middleware-aws-signers-v4にプルリクしたい
 
 
