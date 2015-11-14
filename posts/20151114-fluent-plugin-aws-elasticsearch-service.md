@@ -7,6 +7,7 @@
 ### atomita
 
 
+
 ## 自己紹介
 
 - <h3>4年ほど前に沖縄にきました</h3>
@@ -19,10 +20,13 @@
 - https://github.com/atomita
 
 
+
 ## fluentdのpluginです
 
 
+
 ## fluentdとは
+
 
 
 > Fluentd（フルエントディー）とは、オープンソースのデータコレクターやデータログ収集ツールと呼ばれるソフトウェアです。
@@ -31,12 +35,15 @@
 > http://www.idcf.jp/words/fluentd.html
 
 
+
 ## fluentdからelasticsearchに送るpluginがすでにありました
 
 ### [fluent-plugin-elasticsearch](https://rubygems.org/gems/fluent-plugin-elasticsearch/)
 
 
+
 ## しかし、これはBasic認証しか（？）サポートしていないようです
+
 
 
 ## せっかくAWSなので
@@ -46,7 +53,9 @@
 ## [fluent-plugin-aws-elasticsearch-service](https://rubygems.org/gems/fluent-plugin-aws-elasticsearch-service/)です
 
 
+
 ## 現状の問題
+
 
 
 ### 1
@@ -58,6 +67,7 @@
 #### 再現できておらず...
 
 
+
 ### 2
 
 #### faraday_middleware-aws-signers-v4に
@@ -67,6 +77,7 @@
 #### ちゃんと対応して
 
 #### faraday_middleware-aws-signers-v4にプルリクしたい
+
 
 
 ## ご清聴ありがとうございました！
