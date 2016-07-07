@@ -1,11 +1,21 @@
 # [echo](https://github.com/labstack/echo) を試してみた
 
+### 2015-11-14
+
+### atomita
+
+
+
 ## まとめ
 
 - スクリプト言語と錯覚するくらい簡単
 - JSONを出力するのは`map[string]interface{}`を`json.Marshal`に渡すのが一般的？
 
+
+
 ## 環境構築
+
+
 
 ### anyenv いれて
 
@@ -19,11 +29,15 @@ eval "$(anyenv init -)"
 
 参考 [anyenvで開発環境を整える - Qiita](http://qiita.com/luckypool/items/f1e756e9d3e9786ad9ea)
 
+
+
 ### goenv いれて
 
 ```sh
 anyenv install ndenv
 ```
+
+
 
 ### go いれて
 
@@ -31,6 +45,8 @@ anyenv install ndenv
 goenv install 1.6
 goenv global 1.6
 ```
+
+
 
 ### GOPATH 設定用に direnv いれて
 
@@ -43,6 +59,8 @@ eval "$(direnv hook bash)"
 ```
 
 `eval`は .profile とかに書いとく
+
+
 
 ### directory つくって .envrc 設定して direnv 有効化して
 
