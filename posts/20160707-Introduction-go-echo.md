@@ -34,7 +34,7 @@ eval "$(anyenv init -)"
 ### goenv いれて
 
 ```sh
-anyenv install ndenv
+anyenv install goenv
 ```
 
 
