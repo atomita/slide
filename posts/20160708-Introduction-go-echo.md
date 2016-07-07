@@ -75,8 +75,6 @@ echo 'export GOBIN=$(pwd)/bin' >> .envrc
 direnv allow
 ```
 
-参考 [direnvで解決するGOPATHの3つの問題点 - None is None is None](http://doloopwhile.hatenablog.com/entry/2014/06/18/010449)
-
 
 
 ### 準備完了...
