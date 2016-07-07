@@ -75,9 +75,15 @@ direnv allow
 
 参考 [direnvで解決するGOPATHの3つの問題点 - None is None is None](http://doloopwhile.hatenablog.com/entry/2014/06/18/010449)
 
+
+
 ### 準備完了...
 
+
+
 ## Hellow World
+
+
 
 ### コードを書く
 
@@ -106,6 +112,8 @@ func main() {
 
 ```
 
+
+
 ### おもむろに実行して browser で開く
 
 ```sh
@@ -115,7 +123,10 @@ go run main.go
 [http://localhost:8080](http://localhost:8080)
 
 
+
 ## JSON 返してぇ
+
+
 
 ### コード書く
 
@@ -128,6 +139,7 @@ go run main.go
 ```
 
 参考 [https://gobyexample.com/json](https://gobyexample.com/json)
+
 
 
 ## おしまい
