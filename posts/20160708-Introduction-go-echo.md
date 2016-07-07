@@ -142,4 +142,14 @@ go run main.go
 
 
 
+### 実行して browser で開く
+
+```sh
+go run main.go
+```
+
+[http://localhost:8080/api/helloworld](http://localhost:8080/api/helloworld)
+
+
+
 ## おしまい
