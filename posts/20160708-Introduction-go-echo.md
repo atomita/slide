@@ -132,7 +132,7 @@ go run main.go
 
 ```go
 	e.GET("/api/helloworld", func(c echo.Context) error {
-		data := map[string]interface{}{"result": "hellow, world"}
+		data := map[string]interface{}{"result": "hellow, world", code: 123}
 		encoded, _ := json.Marshal(data)
 		return c.String(http.StatusOK, string(encoded))
 	})
