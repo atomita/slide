@@ -60,6 +60,8 @@ eval "$(direnv hook bash)"
 
 `eval`は .profile とかに書いとく
 
+参考 [direnvで解決するGOPATHの3つの問題点 - None is None is None](http://doloopwhile.hatenablog.com/entry/2014/06/18/010449)
+
 
 
 ### directory つくって .envrc 設定して direnv 有効化して
