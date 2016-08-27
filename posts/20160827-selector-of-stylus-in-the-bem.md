@@ -9,6 +9,8 @@
 
 ## まとめ
 
+
+
 - BEMで書くときにはstylusが便利
 - マルチクラスな設計ならばsassもあり
 - sassで`&`の親selectorを参照する方法あったら教えてください
@@ -24,12 +26,14 @@
 
 ## なぜBEMにしたか
 
+
+
 - シングルクラスになるのでCSSの適用順で悩むことが減るはず
 - 塊だなと思ったらblockで名前つければいい感じなので、意外とやりやすそう？
 
 
 
-## 例
+## BEMのCSSの例
 
 ```css
 .block,
@@ -59,8 +63,10 @@
 ## CSSプリプロセッサを使おう
 
 - [Sass](http://sass-lang.com/)
+  - 最初に使ったCSSプリプロセッサ
 - [LESS - The Dynamic Stylesheet language](http://less-ja.studiomohawk.com/)
 - [stylus](http://stylus-lang.com/)
+  - sassから乗り換えた
 - 他いろいろ
 
 
