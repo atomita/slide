@@ -1,4 +1,4 @@
-# stylusのselectorが  
+# stylusの`selector()`が  
 # 便利だった話
 
 ### 2016-08-27
