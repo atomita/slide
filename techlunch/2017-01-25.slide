@@ -21,7 +21,7 @@ cache強目なので、ちゃんと書き上げてから talks.godoc.org で見�
 
 - 経験から要件定義よりあとのdocumentはほとんどが無駄
 - 修正が入るたびにdocumentを直す手間...
-  - documentが放置されたりするときも
+- - documentが放置されたりするときも
 
 
 * Go でシングルバイナリな Web アプリを開発しているときに webpack --watch をうまいところやる
