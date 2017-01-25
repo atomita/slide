@@ -1,35 +1,37 @@
-# Tech Lunch - 2017-01-25
+Tech Lunch - 2017-01-25
 
-## [質問は恥ではないし役に立つ - Qiita](http://qiita.com/seki_uk/items/4001423b3cd3db0dada7?utm_content=buffer698e4&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+* [質問は恥ではないし役に立つ - Qiita](http://qiita.com/seki_uk/items/4001423b3cd3db0dada7?utm_content=buffer698e4&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
-## [ソースコードは設計書であり、コーディングは設計作業である - Qiita](http://qiita.com/mdstoy/items/5510f94c9ed981cfbb85)
+* [ソースコードは設計書であり、コーディングは設計作業である - Qiita](http://qiita.com/mdstoy/items/5510f94c9ed981cfbb85)
 
-## [Big Sky :: Re: Go でシングルバイナリな Web アプリを開発しているときに webpack --watch をうまいところやる](http://mattn.kaoriya.net/software/lang/go/20170119180147.htm)
+* [Big Sky :: Re: Go でシングルバイナリな Web アプリを開発しているときに webpack --watch をうまいところやる](http://mattn.kaoriya.net/software/lang/go/20170119180147.htm)
 
 - IoTでGo使う時に役立ちそうな予感
 
-## [Amazon Dash Buttonは何がヤバイのか – Medium](https://medium.com/@tokoroten/amazon-dash-button%E3%81%AF%E4%BD%95%E3%81%8C%E3%83%A4%E3%83%90%E3%82%A4%E3%81%AE%E3%81%8B-4fb29f42041d#.rp7tz4f5x)
+* [Amazon Dash Buttonは何がヤバイのか – Medium](https://medium.com/@tokoroten/amazon-dash-button%E3%81%AF%E4%BD%95%E3%81%8C%E3%83%A4%E3%83%90%E3%82%A4%E3%81%AE%E3%81%8B-4fb29f42041d#.rp7tz4f5x)
 
 - プラットフォームを持ってるとビジネスを主導できていいなー
 
 
-## [Serverless AWS構成でセキュアなSPAを目指す](http://www.slideshare.net/masayuki-kato/serverless-awsspa)
+* [Serverless AWS構成でセキュアなSPAを目指す](http://www.slideshare.net/masayuki-kato/serverless-awsspa)
 
 - Cognitoの使い勝手を知らないので、なにか作って体感しないと
 
 
-## [PureScript](http://www.purescript.org/)
+* [PureScript](http://www.purescript.org/)
 
 - Haskellに似たsyntaxのaltJS
 - es6とかで書くようになってからaltJSは疎遠になっちゃったけど、Haskellを勉強するつもりで、ちょっと書いてみたい
 - monadをちゃんと理解していないので、まともに書けるか怪しいけどｗ
 
 
-## [Rambler - フレームワーク非依存のデータベースマイグレーション MOONGIFT](http://www.moongift.jp/2016/12/rambler-%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E9%9D%9E%E4%BE%9D%E5%AD%98%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC/)
+* [Rambler - フレームワーク非依存のデータベースマイグレーション MOONGIFT](http://www.moongift.jp/2016/12/rambler-%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E9%9D%9E%E4%BE%9D%E5%AD%98%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC/)
 
 - wordpressとかのCMSを使ってて、migrationもやりたいってときには、これくらいでいいのかも
 
-## stylusで、multi classなcssで`@media`をnestさせると、ちょっと問題があった
+* stylus
+
+multi classなcssで`@media`をnestさせると、ちょっと問題があった
 
 - `@media`の中で`@media`をやると、直近のclassしか指定してない状態になってしまう
 - いろいろ試した結果、mixinにして引数で`selector()`の値を渡すことで、その場のselectorを扱うのが一番楽っぽい
