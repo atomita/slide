@@ -1,51 +1,42 @@
 Tech Lunch
 2017-01-25
-25 Jan 2017
 
 Akiyoshi Tomita
-@xxx
+https://github.com/atomita
 
-* 質問は恥ではないし役に立つ
+* [[http://qiita.com/seki_uk/items/4001423b3cd3db0dada7?utm_content=buffer698e4&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer][質問は恥ではないし役に立つ - Qiita]]
 
-http://qiita.com/seki_uk/items/4001423b3cd3db0dada7?utm_content=buffer698e4&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+- 常識的に浸透するといいなー
 
-* ソースコードは設計書であり、コーディングは設計作業である
+* [[http://qiita.com/mdstoy/items/5510f94c9ed981cfbb85][ソースコードは設計書であり、コーディングは設計作業である - Qiita]]
 
-http://qiita.com/mdstoy/items/5510f94c9ed981cfbb85
+- 経験から要件定義よりあとのdocumentはほとんどが無駄
+- 修正が入るたびにdocumentを直す手間...
+  - documentが放置されたりするときも
 
-* Go でシングルバイナリな Web アプリを開発しているときに webpack --watch をうまいところやる
 
-http://mattn.kaoriya.net/software/lang/go/20170119180147.htm
+* [[http://mattn.kaoriya.net/software/lang/go/20170119180147.htm][Big Sky :: Re: Go でシングルバイナリな Web アプリを開発しているときに webpack --watch をうまいところやる]]
 
 - IoTでGo使う時に役立ちそうな予感
 
-* Amazon Dash Buttonは何がヤバイのか
-
-https://medium.com/@tokoroten/amazon-dash-button%E3%81%AF%E4%BD%95%E3%81%8C%E3%83%A4%E3%83%90%E3%82%A4%E3%81%AE%E3%81%8B-4fb29f42041d#.rp7tz4f5x
+* [[https://medium.com/@tokoroten/amazon-dash-button%E3%81%AF%E4%BD%95%E3%81%8C%E3%83%A4%E3%83%90%E3%82%A4%E3%81%AE%E3%81%8B-4fb29f42041d#.rp7tz4f5x][Amazon Dash Buttonは何がヤバイのか – Medium]]
 
 - プラットフォームを持ってるとビジネスを主導できていいなー
 
 
-* Serverless AWS構成でセキュアなSPAを目指す
-
-http://www.slideshare.net/masayuki-kato/serverless-awsspa
+* [[http://www.slideshare.net/masayuki-kato/serverless-awsspa][Serverless AWS構成でセキュアなSPAを目指す]]
 
 - Cognitoの使い勝手を知らないので、なにか作って体感しないと
 
 
-* PureScript
-
-http://www.purescript.org/
+* [[http://www.purescript.org/][PureScript]]
 
 - Haskellに似たsyntaxのaltJS
 - es6とかで書くようになってからaltJSは疎遠になっちゃったけど、Haskellを勉強するつもりで、ちょっと書いてみたい
 - monadをちゃんと理解していないので、まともに書けるか怪しいけどｗ
 
 
-* Rambler
-
-フレームワーク非依存のデータベースマイグレーション
-http://www.moongift.jp/2016/12/rambler-%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E9%9D%9E%E4%BE%9D%E5%AD%98%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC/
+* [[http://www.moongift.jp/2016/12/rambler-%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E9%9D%9E%E4%BE%9D%E5%AD%98%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC/][Rambler - フレームワーク非依存のデータベースマイグレーション MOONGIFT]]
 
 - wordpressとかのCMSを使ってて、migrationもやりたいってときには、これくらいでいいのかも
 
@@ -55,7 +46,5 @@ multi classなcssで`@media`をnestさせると、ちょっと問題があった
 
 - `@media`の中で`@media`をやると、直近のclassしか指定してない状態になってしまう
 - いろいろ試した結果、mixinにして引数で`selector()`の値を渡すことで、その場のselectorを扱うのが一番楽っぽい
-- http://stylus-lang.com/try.html#?code=%2F%2F%20NG%0A%40media%20(min-width%3A%20999px)%0A%20%20.top%0A%20%20%20%20.bg-img%0A%20%20%20%20%20%20background%20url(.%2Fbg-img.png)%0A%20%20%20%20%20%20%40media%20(min-resolution%3A%202dppx)%0A%20%20%20%20%20%20%20%20background%20url(.%2Fbg-img%402.png)%0A%0A%2F************%2F%0A%0A%2F%2F%20OK%20%20%20%20%0Amedia-min-resolution(dppx%20%3D%201%2C%20scope%20%3D%20%22%22)%0A%20%20if%20scope%20%3D%3D%20%22%22%0A%20%20%20%20%40media%20(min-resolution%3A%20unit(dppx%2C%20%22dppx%22))%0A%20%20%20%20%20%20%7Bblock%7D%0A%20%20else%0A%20%20%20%20%40media%20(min-resolution%3A%20unit(dppx%2C%20%22dppx%22))%0A%20%20%20%20%20%20%7Bscope%7D%0A%20%20%20%20%20%20%20%20%7Bblock%7D%0A%20%20%0A%40media%20(min-width%3A%20999px)%0A%20%20.top%0A%20%20%20%20.bg-img%0A%20%20%20%20%20%20background%20url(.%2Fbg-img.png)%0A%20%20%20%20%20%20%2Bmedia-min-resolution(2%2C%20selector())%0A%20%20%20%20%20%20%20%20background%20url(.%2Fbg-img%402.png)
-- しかしcssでratioを見て画像を変えるのは面倒だ
-- srcset & sizesの便利さを実感
-- 後日、Qiitaで簡単な記事を書きたいと思ってる
+
+.iframe http://stylus-lang.com/try.html#?code=%2F%2F%20NG%0A%40media%20(min-width%3A%20999px)%0A%20%20.top%0A%20%20%20%20.bg-img%0A%20%20%20%20%20%20background%20url(.%2Fbg-img.png)%0A%20%20%20%20%20%20%40media%20(min-resolution%3A%202dppx)%0A%20%20%20%20%20%20%20%20background%20url(.%2Fbg-img%402.png)%0A%0A%2F************%2F%0A%0A%2F%2F%20OK%20%20%20%20%0Amedia-min-resolution(dppx%20%3D%201%2C%20scope%20%3D%20%22%22)%0A%20%20if%20scope%20%3D%3D%20%22%22%0A%20%20%20%20%40media%20(min-resolution%3A%20unit(dppx%2C%20%22dppx%22))%0A%20%20%20%20%20%20%7Bblock%7D%0A%20%20else%0A%20%20%20%20%40media%20(min-resolution%3A%20unit(dppx%2C%20%22dppx%22))%0A%20%20%20%20%20%20%7Bscope%7D%0A%20%20%20%20%20%20%20%20%7Bblock%7D%0A%20%20%0A%40media%20(min-width%3A%20999px)%0A%20%20.top%0A%20%20%20%20.bg-img%0A%20%20%20%20%20%20background%20url(.%2Fbg-img.png)%0A%20%20%20%20%20%20%2Bmedia-min-resolution(2%2C%20selector())%0A%20%20%20%20%20%20%20%20background%20url(.%2Fbg-img%402.png)
