@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
 	<head>
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="https://cdn.rawgit.com/pyrsmk/qwest/master/qwest.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/g/riot@2.0(riot.min.js+compiler.min.js)"></script>
 
 		<script type="riot/tag">
@@ -25,25 +23,13 @@
 						self.update();
 					};
 				var s = document.createElement('script');
-				s.src = opts.api + "?callback=cb";
+				s.src = opts.api + "&callback=cb";
 				document.body.appendChild(s);
-				/*
-				qwest.get(opts.api)
-					.then(function(response){
-						!!console && !!console.log && console.log(response);
-						var data = JSON.parse(response);
-						self.files = data
-							.filter(function(v){ return "file" == v.type; })
-							.filter(function(v){ return ["index.html", "README.md"].indexOf(v.name) < 0; })
-							.map(function(v){ return {"url": v.name, "name": v.name}; });
-						self.update();
-					});
-					*/
 			</app>
 		</script>
 	</head>
 	<body>
-		<app api="https://api.github.com/repos/atomita/slide/contents/"></app>
+		<app api="https://api.github.com/repositories/24505869/contents/?ref=gh-pages"></app>
 		<script>riot.mount("*")</script>
 	</body>
 </html>
