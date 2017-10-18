@@ -260,7 +260,7 @@ class UserController extends Controller
 
 
 
-`resolving`と`afterResolving`の2つのeventがあり、利用例としては[FormRequest](https://readouble.com/laravel/5.4/ja/validation.html#form-request-validation)があり、[`resolving`で初期化用のmethod call、`afterResolving`で`validate` methodがcall][1]されます
+`resolving`と`afterResolving`の2つのeventがあり、利用例としては[FormRequest](https://readouble.com/laravel/5.4/ja/validation.html#form-request-validation)があり、[`resolving`で初期化用のmethod call、`afterResolving`で`validate` methodがcall](https://sourcegraph.com/github.com/laravel/framework@3a16d196bd8d2b7761c9b0060a30a3687c3ea201/-/blob/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php#L28)されます
 
 
 
@@ -268,13 +268,12 @@ class UserController extends Controller
 
 
 
-- injectionは自動で
-- Type hintingで設定
-- methodにもinjection
+### injectionは自動で
+
+### Type hintingで設定
+
+### methodにもinjection
 
 
 
 ## ご清聴ありがとうございました
-
-[1]: https://sourcegraph.com/github.com/laravel/framework@3a16d196bd8d2b7761c9b0060a30a3687c3ea201/-/blob/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php#L28
-
