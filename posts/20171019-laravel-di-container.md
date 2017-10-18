@@ -20,6 +20,7 @@
 
 
 DI(Dependency Injection)してくれるContainer
+
 IoC(Inversion of Control) patternからの派生らしい
 
 
