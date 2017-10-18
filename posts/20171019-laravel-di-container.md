@@ -94,7 +94,7 @@ class Example
 
 
 
-DIありだと、Example classはinstance化する際に、LoggerInterfaceを渡さなければならなくなりました  
+DIありだと、Example classはinstance化する際に、`LoggerInterface`を渡さなければならなくなりました  
 (オブジェクトの生成と使用が分離されている)  
 このように、依存しているもの(class)を、外部から渡すようにするのがDI patternです
 
