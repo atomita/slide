@@ -139,7 +139,8 @@ $example = $container->make(Example::class);
 
 
 
-更にContainerにObjectの生成方法の設定するのを別のところで行うことで(Provider)、単純に使う場合には、依存性を意識することなく使用することができるようになります
+更にContainerにObjectの生成方法の設定するのを別のところで行うことで(Provider)  
+単純に使う場合には、依存性を意識することなく使用することができるようになります
 
 
 
