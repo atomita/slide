@@ -61,7 +61,8 @@ class Example
     public function __construct()
     {
         $this->logger = new Logger('app');
-        $this->logger->pushHandler(new StreamHandler(__DIR__.'/../logs/app.log', Logger::DEBUG));
+        $this->logger->pushHandler(
+            new StreamHandler(__DIR__.'/../logs/app.log', Logger::DEBUG));
     }
     public function run()
     {
@@ -128,7 +129,8 @@ $container = app(); // `app()`はContainerのinstanceを返す
 
 $container->singleton(Psr\Log\LoggerInterface::class, function ($container) {
     $logger = new Logger('app');
-    $logger->pushHandler(new StreamHandler(__DIR__.'/../logs/app.log', Logger::DEBUG));
+    $logger->pushHandler(
+        new StreamHandler(__DIR__.'/../logs/app.log', Logger::DEBUG));
     return $logger;
 });
 
