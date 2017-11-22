@@ -323,6 +323,42 @@ docker-compose run aws bash -c 'cp -a .aws ~/; eb deploy'
 
 
 
+##### Environment variable
+
+
+
+ここまでで一応、Elastic Beanstalkにlaravelをdeployできているはずですが  
+Management consoleではerror状態になっているはずです
+
+これは、laravelに必須な環境変数が設定されていないためです
+
+
+
+それをManagement consoleから設定します
+
+
+
+[Elastic Beanstalk アプリケーション](https://ap-northeast-1.console.aws.amazon.com/elasticbeanstalk/home?region=ap-northeast-1#/applications)を開き、作成したEnvironment Nameをクリック
+
+
+
+左のmenuからの"設定"を開き、"ソフトウェア設定"の右にある歯車iconをクリック
+
+
+
+最下段にある"環境プロパティ"項で下記を入力して"適応"をクリックします
+
+- プロパティ名: APP_KEY
+- プロパティ値: base64:VLC+CDWcmG0KsQHft/oaJjOO7ZaUD7it8ddiO7VHVpE=
+
+
+
+Environmentが再起動し終えると"Ok"状態になります
+
+Note: パンくずにあるURLを開いてpageを確認してみましょう
+
+
+
 ### End
 
 以上で今回のsessionは終わりです
