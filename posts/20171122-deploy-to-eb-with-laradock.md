@@ -199,15 +199,13 @@ Note: シークレットアクセスキーは再表示できません
 
 deployのためのssh keyはeb commandでgenerateできるのですが  
 laradock awsがなぜかssh key fileを必須としているので  
-`aws/ssh_keys` directoryを作成して、dummy.pubを置きます  
-eb commandでgenerateするのでdummy fileを置くだけです
+`aws/ssh_keys` directoryにdummy.pubを置きます  
+後ほどeb commandでgenerateするので、ここではdummy fileを置くだけです
 
 ```shell-session
 mkdir aws/ssh_keys
 touch aws/ssh_keys/dummy.pub
 ```
-
-Note: 後でgenerateしたssh keyを再配置し`docker-compose build aws`を実行する必要があります
 
 
 
