@@ -263,7 +263,7 @@ Note: hostのgitでもok
 
 
 ```shell-session
-docker-compose run aws bash -c "eb init && cp -a ~/.ssh ./; cp ~/.aws ./; chown -R `id -u`:`id -u` .ssh; chown -R `id -u`:`id -u` .aws"
+docker-compose run aws bash -c "eb init && cp -a ~/.ssh ./; cp -a ~/.aws ./; chown -R `id -u`:`id -u` .ssh; chown -R `id -u`:`id -u` .aws"
 ```
 
 対話形式で入力を求められるので順次入力します
