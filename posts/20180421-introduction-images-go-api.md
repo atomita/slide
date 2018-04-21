@@ -27,11 +27,21 @@ atomita
 
 Images APIは、Google Cloud StorageやBlobstoreから直接画像を提供し、その画像をその場で操作する機能を提供します。
 
+
+
 類似Services
 - [Cloudinary](https://cloudinary.com/)
 - [imgix](https://www.imgix.com/)
 - [Image Resizer](https://imageresizer.io/)
 - ...
+
+
+
+## まかされたissue
+
+
+
+「uploadされたfileを決まったsizeにresizeしてほしい」
 
 
 
@@ -43,6 +53,10 @@ Images APIは、Google Cloud StorageやBlobstoreから直接画像を提供し�
 
 
 
+datastoreにuploadするのをそのまま使えるImages APIの出番！
+
+
+
 ## 変更後の構成
 
 
@@ -51,11 +65,65 @@ Images APIは、Google Cloud StorageやBlobstoreから直接画像を提供し�
 
 
 
-## 
-
-`http://lh*.googleusercontent.com/xxxxxxx`って感じのURLが返されます
+## code (一部)
 
 
+
+```
+import (
+	"context"
+	"github.com/labstack/echo"
+	"github.com/pkg/errors"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/blobstore"
+	"google.golang.org/appengine/image"
+	"log"
+	"net/http"
+	"path/filepath"
+)
+
+type (
+	ResizableForm struct {
+		Bucket string `json:"bucket" form:"bucket" query:"bucket" validate:"required"`
+		Path   string `json:"path"   form:"path"   query:"path"   validate:"required"`
+	}
+
+	CreateResizableResponse struct {
+		URL string `json:"url"`
+	}
+
+	errorResponse struct {
+		Error interface{} `json:"error"`
+	}
+)
+
+func createResizableURL(c echo.Context) error {
+	blobKey, ctx, err := getContextAndBlobKey(c)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, &errorResponse{Error: err.Error()})
+	}
+
+	opts := image.ServingURLOptions{Secure: true}
+	url, err := image.ServingURL(ctx, *blobKey, &opts)
+	if err != nil {
+		log.Printf("error: %v", err)
+		return c.JSON(http.StatusBadRequest, &errorResponse{Error: err.Error()})
+	}
+
+	response := new(CreateResizableResponse)
+	response.URL = url.String()
+
+	return c.JSON(http.StatusCreated, response)
+}
+```
+
+
+
+`image.ServingURL`からは`http://lh*.googleusercontent.com/xxxxxxx`って感じのURLが返されます
+
+
+
+このURLにresize parametersをつけると、それに従ってresizeしてくれます
 
 
 
