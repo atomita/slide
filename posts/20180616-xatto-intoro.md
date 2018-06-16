@@ -16,7 +16,8 @@ ultradomはhyperappの軽量版といった立ち位置
 
 Note: ultradomの詳細は[2018 年は Hyperapp の年だ](https://qiita.com/JorgeBucaran/items/c48446babe0627e25ee6#%E9%9B%A3%E3%81%97%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D)の「Picodomとは?」を読んでください
 Note: hyperappのsampleとかと比較  
-https://github.com/hyperapp/hyperapp  
+react https://codepen.io/ajcbrown820/pen/eZdWaj?editors=0010  
+hyperapp https://codepen.io/vdsabev/pen/mMwzNp?editors=0010
 Note: [hyperapp v2の提案](https://github.com/hyperapp/hyperapp/issues/672)
 
 
