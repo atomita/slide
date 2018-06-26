@@ -42,6 +42,7 @@ Note: [hyperapp v2の提案](https://github.com/hyperapp/hyperapp/issues/672)
 - [Okinawa Frontend](https://okinawa-frontend.doorkeeper.jp/)
 - [Laravel MeetUp Okinawa](https://laravel-meetup-okinawa.connpass.com/)
 - [JavaScript MeetUp Okinawa](https://javascript-meetup-okinawa.connpass.com/)
+- [Okinawa.rb](http://ruby.okinawa/)
 
 
 
