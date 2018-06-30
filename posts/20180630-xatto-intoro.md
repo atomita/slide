@@ -51,9 +51,14 @@ fault
   - v2で解消される予定
    - [RFC: Hyperapp 2.0 · Issue #672 · hyperapp/hyperapp](https://github.com/hyperapp/hyperapp/issues/672)
 - `context`を扱う[hyperapp-context](https://www.npmjs.com/package/hyperapp-context)を使おうとすると既に作ったComponentsを作す必要がでてくる
-  - HyperappのComponentsは`(attrs, children) => VNode`か`(attrs, children) => (state, actions) => VNode`の形で作れます
-    - es5で書くと`function (attrs, children) { return VNode }`と`function (attrs, children) { return function (state, actions) { return VNode } }`
-  - hyperapp-contextを適用すると後者の形が使えなくなり、変わりに`(attrs, children) => (context, setContext) => VNode`の形が使えるようになります
+  - HyperappのComponentsは下の2つの形で作れます
+    - `(attrs, children) => VNode`
+    - `(attrs, children) => (state, actions) => VNode`
+    - es5で書くと
+      - `function (attrs, children) { return VNode }`
+      - `function (attrs, children) { return function (state, actions) { return VNode } }`
+  - hyperapp-contextを適用すると後者の形が使えなくなり、変わりに下の形が使えるようになります
+    - `(attrs, children) => (context, setContext) => VNode`
 
 
 
