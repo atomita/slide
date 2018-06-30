@@ -22,7 +22,7 @@ PicodomはHyperappのLibrary版といった立ち位置
 >
 > どちらかというと、ユーザーが自分の VDOM 系ビューライブラリ（P/React とか、Inferno, Riot, Hyperapp など）を作るのに便利に使えるということが、Picodom の存在意義だと思っている。Picodom をベースにしたオリジナルビューライブラリや、VDOM 系ツールとか、ユーザーが楽しく簡単に作れたら嬉しいと思う。
 >
-> [2018 年は Hyperapp の年だ]
+> [2018 年は Hyperapp の年だ](https://qiita.com/JorgeBucaran/items/c48446babe0627e25ee6#%E9%9B%A3%E3%81%97%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D)
 
 - Picodom
 - ultradom
