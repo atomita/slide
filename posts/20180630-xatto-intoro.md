@@ -81,7 +81,7 @@ Counters by xatto
 
 
 
-## Hyperappとの比較
+## Hyperapp, Reactとの比較
 
 
 
@@ -89,8 +89,6 @@ Counters by Hyperapp
 
 <iframe height='265' scrolling='no' title='Counters by hyperapp' src='//codepen.io/atomita/embed/oyQdMx/?height=265&theme-id=light&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/atomita/pen/oyQdMx/'>Counters by hyperapp</a> by atomita (<a href='https://codepen.io/atomita'>@atomita</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-
 
 Counters by React Context
 
