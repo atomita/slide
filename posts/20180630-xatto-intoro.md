@@ -120,10 +120,8 @@ Counters by React Context
 
 ### Comunity
 
-- [Golang 勉強会 in Okinawa](https://okinawa-go.doorkeeper.jp/)
-  - core member
 - [Hackers Champloo](http://hackers-champloo.org/)
-  - 2018 実行副委員長
+- [Golang 勉強会 in Okinawa](https://okinawa-go.doorkeeper.jp/)
 - [JAWS-UG沖縄](https://jaws-ug-okinawa.doorkeeper.jp/)
 - [GCPUG Okinawa](https://okipug.connpass.com/)
 - [Okinawa Frontend](https://okinawa-frontend.doorkeeper.jp/)
