@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Job Antennaで利用しているpackageを軽く紹介 | atomita's slide</title>
+    <meta name="description" content="Markdown renderer">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/markdown" id="markdown">
+# Job Antennaで利用しているpackageを軽く紹介
+
+
+2021-11-25
+#### atomita
+
+
+
+## Who
+
+- プログラマー
+  - [https://github.com/atomita](https://github.com/atomita)
+- 所属
+  - 琉球インタラクティブ
+- 担当
+  - Job Antennaのシステム開発
+
+Note:
+
+
+
+## Job Antenna
+
+- 求人マッチングサービス
+- React + GraphQL
+  - Serving GraphQL from Laravel
+
+Note:
+- 沖縄と北海道でサービス提供しています
+- 最近、php 8.0にしました
+- LaravelはLTSを使っているのでまだv6
+
+
+
+## Packages
+
+```json
+"awobaz/compoships": "^1.1",
+"franzose/closure-table": "^5.1.1",
+"fruitcake/laravel-cors": "^1.0",
+"grimzy/laravel-mysql-spatial": "^2.2",
+"intervention/image": "^2.6",
+"laravel/socialite": "^5.2",
+"nuwave/lighthouse": "^4.18",
+"socialiteproviders/line": "^4.1",
+"spatie/laravel-analytics": "^3.8",
+"spatie/laravel-feed": "^2.7",
+"spatie/laravel-permission": "^3.2",
+"symfony/yaml": "^5.2"
+```
+
+Note:
+全てではないです
+
+
+
+### nuwave/lighthouse
+
+- [https://github.com/nuwave/lighthouse](https://github.com/nuwave/lighthouse)
+- LaravelでGraphQLを提供するためのpackage
+- ユーザーはGraphQL Schemaを書いて、このpackageがLaravelとのつなぎ込みをします
+
+---
+
+これ以外の選択肢
+- rebing/graphql-laravel
+  - [https://github.com/rebing/graphql-laravel](https://github.com/rebing/graphql-laravel)
+  - こちらはphpでGraphQL Schemaを定義する感じ
+
+
+
+### awobaz/compoships
+
+- [https://github.com/topclaudy/compoships](https://github.com/topclaudy/compoships)
+- Eloquentで複合/複数キーによるrelationを行えるようにするpackage
+
+
+
+### franzose/closure-table
+
+- [https://github.com/franzose/ClosureTable](https://github.com/franzose/ClosureTable)
+- Eloquentで閉包テーブル(Closure Table)を提供してくれるpackage
+
+Note:
+閉包テーブルはRDBで木構造を扱うときのpatternです
+
+
+
+### fruitcake/laravel-cors
+
+- [https://github.com/fruitcake/laravel-cors](https://github.com/fruitcake/laravel-cors)
+- CORSのためのpackage
+
+
+
+### grimzy/laravel-mysql-spatial
+
+- [https://github.com/grimzy/laravel-mysql-spatial](https://github.com/grimzy/laravel-mysql-spatial)
+- EloquentでMySQLの空間データを簡単に操作できるようにしてくれるpackage
+
+
+
+### intervention/image
+
+- [https://github.com/Intervention/image](https://github.com/Intervention/image)
+- GDとImagickのラッパー
+
+Note:
+当初、Imagickを使っていたのですが、AWS側の問題(?)でImagickが標準提供されてなくなってしまったため、GDに乗り換えることになり、こちらを利用しました
+GDを直接利用するより使いやすいんじゃないかと
+
+
+
+### laravel/socialite
+
+- [https://readouble.com/laravel/8.x/ja/socialite.html](https://readouble.com/laravel/8.x/ja/socialite.html)
+- OAuthで認証するために便利なpackage
+- socialiteproviders/lineも合わせて使っています
+  - [https://github.com/SocialiteProviders/Line](https://github.com/SocialiteProviders/Line)
+
+
+
+### spatie/laravel-analytics
+
+- [https://github.com/spatie/laravel-analytics](https://github.com/spatie/laravel-analytics)
+- Google Analyticsからのデータ取得を簡単にできるようにしてくれるpackage
+
+
+
+### spatie/laravel-feed
+
+- [https://github.com/spatie/laravel-feed](https://github.com/spatie/laravel-feed)
+- RSSやATOMの配信用のpackage
+
+
+
+### spatie/laravel-permission
+
+- [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+- 権限やロールをユーザーに割り当てるpackage
+- 権限を持っていないとCRUDできないようにするため
+
+
+
+### symfony/yaml
+
+- [https://github.com/symfony/yaml](https://github.com/symfony/yaml)
+- YAMLパーサ
+
+Note:
+- seederで取り込むものをYAMLにしたくて利用しています
+- multi documentなYAMLには対応していないので、その部分は正規表現で対処してます
+
+
+
+End
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/xatto@1.4.3/dist/xatto.min.js"></script>
+    <script>
+      function App (props, children, context) {
+        return x(
+          'div',
+          {
+            id: 'view',
+            style: `left: ${(context.page - 1) * -100}vw`,
+            pages: props.markdowns.length,
+            oncreate: onCreate,
+            onFlipPage
+          },
+          props.markdowns.map(markdown => x(Raw, { tag: 'section', html: marked(markdown) })))
+      }
+      let dispatch
+      function onCreate(context, details) {
+        dispatch = details.dispatch 
+      }
+      function onFlipPage({ page }, { value }, { pages }) {
+        page = page + value
+        return 0 < page && page <= pages && { page } || { page: 1 }
+      } 
+      function splitNote(markdown) {
+        const [body, note] = markdown.split(/^Note:/m)
+        if (note) {
+          console.log('Note:' + note)
+        }
+        return body
+      }
+      function Raw(props) {
+        return x(props.tag || 'span', { oncreate: setInnerHtml, onupdate: setInnerHtml, html: props.html })
+      }
+      function setInnerHtml(context, extra, props, event) {
+        event.target.innerHTML = props.html
+      }
+
+      const { atto, x } = xatto
+
+      atto(
+        () => x(
+          App,
+          {
+            markdowns: document.getElementById('markdown').innerText.split(/\n\n\n\n+/).map(md => splitNote(md))
+          },
+          []
+        ),
+        document.getElementById('app')
+      )({
+        page: 1
+      })
+
+      document.body.addEventListener('keydown', (event) => {
+        switch (event.key) {
+          case 'ArrowRight':
+            dispatch('FlipPage', { value: 1 })
+            break
+          case 'ArrowLeft':
+            dispatch('FlipPage', { value: -1 })
+            break
+        }
+      })
+    </script>
+    <style type="text/css">
+      @page { size:landscape; }
+      @media screen {
+        #view {
+          display: flex;
+          overflow: hidden;
+          position: absolute;
+          transition: left .4s;
+        }
+        section {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          width: 100vw;
+          min-width: 100vw;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      html {
+        font-size: 3em;
+      }
+      body {
+        /*font-family: 'Kosugi Maru', sans-serif;*/
+        font-family: 'Noto Sans JP', sans-serif;
+        overflow: hidden;
+      }
+      section {
+        padding: 0 10vw;
+        position: relative;
+        z-index: 0;
+      }
+      section > h1,
+      section > h2,
+      section > h3,
+      section > h4,
+      section > h5,
+      section > ul > li,
+      section > p {
+        border-radius: 5px;
+        padding: 5px .5em;
+        background: rgba(0,0,0, .25);
+      }
+      pre {
+        border-radius: 5px;
+        background: #DFEFFF;
+        padding: .1em .5em;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+        max-height: 90vh;
+        max-width: 90vw;
+        font-size: .5rem;
+        margin-bottom: 0;
+      }
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 20, 50, .3);
+        border-radius: 5px;
+      }
+      @media print {
+        html {
+          font-size: 2.5em;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        section {
+          padding: 0 5vw;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          border: initial;
+          border-radius: initial;
+          width: 100vw;
+          min-height: 100vh;
+          box-shadow: initial;
+          background: initial;
+          page-break-after: always;
+        }
+        pre {
+          font-size: .3rem
+        }
+      }
+      body {
+        background-color: #3451a4;
+        color: #DFF2FC;
+      }
+      section:before {
+        content: "";
+        background: inherit;
+        filter: brightness(1.4);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+      li + li {
+        margin-top: 6px
+      }
+      section {
+        /*
+        background-image: url(data:image/jpeg;base64,);
+        */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </body>
+</html>
